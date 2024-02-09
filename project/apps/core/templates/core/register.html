@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Register
+{% endblock title %}
+
+{% block content_title %}
+Register
+{% endblock content_title %}
+
+{% block content %}
+
+<form method="post" class="form-control">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Registrar Usuario</button>
+    <a href="{% url 'core:index' %}">Cancelar</a>
+
+
+</form>
+{% endblock content %}

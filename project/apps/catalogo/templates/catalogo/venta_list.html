@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+
+
+{% block content_title %}
+Peliculas
+{% endblock content_title %}
+
+{% block content %}
+<div class="container">
+    <div class="mb-4">
+        <form method="get">
+            <input type="text" class="form-control" name="consulta" placeholder="Buscar Categoría">
+        </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Película</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for categoria in object_list %}
+            <tr>
+                <td>{{ categoria.nombre }}</td>
+                <td>
+                    <a href="{% url 'catalogo:venta_detail' categoria.id %}" class="btn btn-primary">
+                        <i class="fas fa-star"></i> Detalle</a>
+                    <a href=" {% url 'catalogo:venta_update' categoria.id %}" class="btn btn-secondary"><i
+                            class="fas fa-pencil-alt"></i> Editar</a>
+                    <a href="{% url 'catalogo:venta_delete' categoria.id %}" class="btn btn-danger "><i
+                            class="fas fa-trash-alt"></i>Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td class="text-center">No hay categorías disponibles.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
