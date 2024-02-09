@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Eliminar Artículo
+{% endblock title %}
+
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <p>Confirma que quiere eliminar {{ object.nombre }} del catálogo?</p>
+    <button type="submit">Si</button>
+
+</form>
+{% endblock content %}

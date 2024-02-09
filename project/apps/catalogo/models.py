@@ -11,9 +11,9 @@ class Categoria(models.Model):
 
 
 class Producto(models.Model):
-    categoria_id = models.ForeignKey(
-        Categoria, null=True, blank=True, on_delete=models.SET_NULL)
     nombre = models.CharField(max_length=150)
+    categoria = models.ForeignKey(
+        Categoria, null=True, blank=True, on_delete=models.SET_NULL)
     precio = models.FloatField()
     fecha_creacion = models.DateField(
         default=timezone.now, editable=False, verbose_name="fecha de creación")
@@ -22,24 +22,28 @@ class Producto(models.Model):
         null=True, blank=True, verbose_name="descripción")
 
     def __str__(self):
-        return f"{self.nombre}, {self.precio}, {self.categoria_id}"
-    
+        return f"{self.nombre}, {self.precio}, {self.categoria}"
+
     class Meta:
         verbose_name = "producto"
         verbose_name_plural = "productos"
 
 
 class Venta(models.Model):
+    operacion = models.AutoField(primary_key=True, default=1)
     articulo = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    cliente = models.ForeignKey(Client, null=True, blank=True, on_delete=models.SET_NULL, editable=False)
+    cliente = models.ForeignKey(
+        Client, null=True, blank=True, on_delete=models.SET_NULL)
     cantidad = models.FloatField()
     precio_unitario = models.FloatField()
     precio_neto = models.FloatField(editable=False)
     fecha_operacion = models.DateField(
         default=timezone.now, editable=False, verbose_name="fecha de operación")
-    
+
     def save(self):
+        # Calcular el precio neto
         self.precio_neto = float(self.precio_unitario * self.cantidad)
+        super().save()
 
     def __str__(self):
-        return f"{self.fecha_operacion}, {self.articulo}, {self.cantidad}, {self.precio_unitario}, {self.precio_neto}"
+        return f"{self.operacion}, {self.fecha_operacion}, {self.articulo}, {self.cantidad}, {self.precio_unitario}, {self.precio_neto}"

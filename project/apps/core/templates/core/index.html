@@ -6,19 +6,16 @@
 
 {% endblock content_title %}
 
-
-
 {% block content %}
 
-
 <div class="row gx-4 gx-lg-5 align-items-center my-5">
-    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'core/img/SalaDeCine.jpg' %}"
-            alt="..." /></div>
+    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'core/img/portada_deco.jpg' %}"
+            alt="..." style="width: 100%; max-width: 400px" /></div>
     <div class="col-lg-5">
-        <h1 class="font-weight-light text-center" style="max-width: 100%">Bienvenidos a</h1>
-        <h1 class="font-weight-light text-center" style="max-width: 100%">Cine Plus</h1>
-        <p class=" text-center">El portal con tus peliculas y series favoritas</p>
-        <a class="btn btn-primary btn-lg px-4 me-sm-3 d-flex justify-content-center"
+        <h1 class="font-weight-light text-center" style="max-width: 100%"><i>Bienvenidos a</i></h1>
+        <h1 class="font-weight-light text-center" style="max-width: 100%"><i>La Triada Deco</i></h1>
+        <p class=" text-center">Arma el hogar de tus sueños</p>
+        <a class="btn btn-secondary btn-lg px-4 me-sm-3 d-flex justify-content-center"
             href="{% url 'catalogo:index' %}">Entrar</a>
     </div>
 </div>

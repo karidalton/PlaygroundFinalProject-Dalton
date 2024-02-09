@@ -23,7 +23,7 @@ class CategoriaList(ListView):
     def get_queryset(self):
         if self.request.GET.get("consulta"):
             consulta = self.request.GET.get("consulta")
-            object_list = Categoria.objects.filter(nombre_icontains=consulta)
+            object_list = Categoria.objects.filter(nombre__icontains=consulta)
         else:
             object_list = Categoria.objects.all()
         return object_list
@@ -57,7 +57,7 @@ class ProductoList(ListView):
     def get_queryset(self):
         if self.request.GET.get("consulta"):
             consulta = self.request.GET.get("consulta")
-            object_list = Producto.objects.filter(nombre_icontains=consulta)
+            object_list = Producto.objects.filter(nombre__icontains=consulta)
         else:
             object_list = Producto.objects.all()
         return object_list
@@ -91,7 +91,7 @@ class VentaList(ListView):
     def get_queryset(self):
         if self.request.GET.get("consulta"):
             consulta = self.request.GET.get("consulta")
-            object_list = Venta.objects.filter(nombre_icontains=consulta)
+            object_list = Venta.objects.filter(nombre__icontains=consulta)
         else:
             object_list = Venta.objects.all()
         return object_list

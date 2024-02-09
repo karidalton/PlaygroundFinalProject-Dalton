@@ -2,24 +2,26 @@
 
 
 {% block content_title %}
-Series
+Catálogo de productos
 {% endblock content_title %}
 
 {% block content %}
 <div class="container">
     <div class="mb-4">
         <form method="get">
-            <input type="text" class="form-control" name="consulta" placeholder="Buscar Categoría">
+            <input type="text" class="form-control" name="consulta" placeholder="Buscar artículo">
         </form>
     </div>
 
-    <a {% if user.is_authenticated %} href="{% url 'catalogo:serie_form' %}" 
-        {% else %} href="{% url 'core:login' %}" {% endif %} class="btn btn-primary">Agregar serie</a>
+    <a {% if user.is_authenticated %} href="{% url 'catalogo:producto_form' %}" {% else %} href="{% url 'core:login' %}"
+        {% endif %} class="btn btn-secondary">Agregar artículo</a>
+    <a {% if user.is_authenticated %} href="{% url 'catalogo:categoria_form' %}" {% else %}
+        href="{% url 'core:login' %}" {% endif %} class="btn btn-secondary">Crear categoría</a>
 
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Serie</th>
+                <th>Artículos</th>
             </tr>
         </thead>
         <tbody>
@@ -27,11 +29,11 @@ Series
             <tr>
                 <td>{{ categoria.nombre }}</td>
                 <td>
-                    <a href="{% url 'catalogo:producto_detail' categoria.id %}" class="btn btn-primary">
+                    <a href="{% url 'catalogo:producto_detail' categoria.id %}" class="btn btn-secondary">
                         <i class="fas fa-star"></i> Detalle</a>
                     <a href=" {% url 'catalogo:producto_update' categoria.id %}" class="btn btn-secondary"><i
                             class="fas fa-pencil-alt"></i> Editar</a>
-                    <a href="{% url 'catalogo:producto_confirm_delete' categoria.id %}" class="btn btn-danger "><i
+                    <a href="{% url 'catalogo:producto_confirm_delete' categoria.id %}" class="btn btn-secondary "><i
                             class="fas fa-trash-alt"></i>Eliminar</a>
                 </td>
             </tr>

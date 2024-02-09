@@ -2,39 +2,41 @@
 
 
 {% block content_title %}
-Peliculas
+Ventas realizadas
 {% endblock content_title %}
 
 {% block content %}
 <div class="container">
     <div class="mb-4">
         <form method="get">
-            <input type="text" class="form-control" name="consulta" placeholder="Buscar Categoría">
+            <input type="text" class="form-control" name="consulta" placeholder="Buscar transacción">
         </form>
     </div>
+
+    <a {% if user.is_authenticated %} href="{% url 'catalogo:venta_form' %}" {% else %} href="{% url 'core:login' %}"
+        {%endif %} class="btn btn-secondary">Ingresar una venta</a>
 
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Película</th>
+                <th>Ventas</th>
             </tr>
         </thead>
         <tbody>
-            {% for categoria in object_list %}
+            {% for item in object_list %}
             <tr>
-                <td>{{ categoria.nombre }}</td>
+                <td>{{ item }}</td>
                 <td>
-                    <a href="{% url 'catalogo:venta_detail' categoria.id %}" class="btn btn-primary">
+                    <a href="{% url 'catalogo:venta_detail' item.pk %}">
                         <i class="fas fa-star"></i> Detalle</a>
-                    <a href=" {% url 'catalogo:venta_update' categoria.id %}" class="btn btn-secondary"><i
-                            class="fas fa-pencil-alt"></i> Editar</a>
-                    <a href="{% url 'catalogo:venta_delete' categoria.id %}" class="btn btn-danger "><i
+                    <a href=" {% url 'catalogo:venta_update' item.pk %}"><i class="fas fa-pencil-alt"></i> Editar</a>
+                    <a href="{% url 'catalogo:venta_confirm_delete' item.pk %}"><i
                             class="fas fa-trash-alt"></i>Eliminar</a>
                 </td>
             </tr>
             {% empty %}
             <tr>
-                <td class="text-center">No hay categorías disponibles.</td>
+                <td class="text-center">No hay información disponible.</td>
             </tr>
             {% endfor %}
         </tbody>
