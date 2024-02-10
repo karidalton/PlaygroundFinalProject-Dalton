@@ -24,5 +24,4 @@ urlpatterns = [
     path("venta/update/<int:pk>/", VentaUpdate.as_view(), name="venta_update"),
     path("venta/delete/<int:pk>/", VentaDelete.as_view(),
          name="venta_confirm_delete"),
-    path("venta/detail/<int:pk>/", VentaDetail.as_view(), name="venta_detail"),
 ]

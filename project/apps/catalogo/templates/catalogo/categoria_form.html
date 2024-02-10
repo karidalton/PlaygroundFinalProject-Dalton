@@ -10,7 +10,8 @@ Crear Categoria
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn btn-secondary">Guardar</button>
+    <a href="{% url 'catalogo:categoria_list' %}" class="btn btn-secondary">Cancelar</a>
 
 </form>
 {% endblock content %}

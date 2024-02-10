@@ -15,22 +15,26 @@ ABM de clientes
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Clientes</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Alta</th>
             </tr>
         </thead>
         <tbody>
 
             <a href="{% url 'cliente:cliente_form' %}" class="btn btn-secondary">Nuevo cliente</a>
 
-            {% for categoria in object_list %}
+            {% for comprador in object_list %}
             <tr>
-                <td>{{ categoria.nombre }}</td>
+                <td>{{ comprador.nombre }}</td>
+                <td>{{ comprador.apellido }}</td>
+                <td>{{ comprador.fecha_alta }}</td>
                 <td>
-                    <a href="{% url 'cliente:cliente_detail' categoria.id %}" class="btn btn-secondary">
+                    <a href="{% url 'cliente:cliente_detail' comprador.id %}" class="btn btn-secondary">
                         <i class="fas fa-star"></i> Detalle</a>
-                    <a href=" {% url 'cliente:cliente_update' categoria.id %}" class="btn btn-secondary"><i
+                    <a href=" {% url 'cliente:cliente_update' comprador.id %}" class="btn btn-secondary"><i
                             class="fas fa-pencil-alt"></i> Editar</a>
-                    <a href="{% url 'cliente:cliente_confirm_delete' categoria.id %}" class="btn btn-secondary "><i
+                    <a href="{% url 'cliente:cliente_confirm_delete' comprador.id %}" class="btn btn-secondary "><i
                             class="fas fa-trash-alt"></i>Eliminar</a>
                 </td>
             </tr>

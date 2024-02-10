@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block content_title %}
+Información del cliente
+{% endblock content_title %}
+
+{% block content %}
+<div class="container">
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Cliente {{object.nombre}} {{object.apellido}}</h5>
+            <p class="card-text">Email: {{ object.email }}</p>
+            <p class="card-text">Fecha de nacimiento: {{ object.fecha_nacimiento }}</p>
+            <p class="card-text">Fecha de alta:{{ object.fecha_alta }}</p>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="{% url 'cliente:cliente_list' %}" class="btn btn-secondary">Volver a la Lista</a>
+        <a href="{% url 'cliente:cliente_update' object.id %}" class="btn btn-secondary">Editar</a>
+        <a href="{% url 'cliente:cliente_confirm_delete' object.id %}" class="btn btn-secondary">Eliminar</a>
+    </div>
+</div>
+{% endblock content %}

@@ -35,10 +35,9 @@ Ventas realizadas
                 <td>{{ item.precio_unitario }}</td>
                 <td>{{ item.precio_neto }}</td>
                 <td>
-                    <a href="{% url 'catalogo:venta_detail' item.pk %}">
-                        <i class="fas fa-star"></i> Detalle</a>
-                    <a href=" {% url 'catalogo:venta_update' item.pk %}"><i class="fas fa-pencil-alt"></i> Editar</a>
-                    <a href="{% url 'catalogo:venta_confirm_delete' item.pk %}"><i
+                    <a href=" {% url 'catalogo:venta_update' item.pk %}" class="btn btn-secondary"><i
+                            class="fas fa-pencil-alt"></i> Editar</a>
+                    <a href="{% url 'catalogo:venta_confirm_delete' item.pk %}" class="btn btn-secondary"><i
                             class="fas fa-trash-alt"></i>Eliminar</a>
                 </td>
             </tr>
