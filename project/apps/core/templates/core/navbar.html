@@ -12,11 +12,12 @@
                         href="{% url 'core:about' %}">Nosotros</a></li>
                 <li class="nav-item"><a class="nav-link {% if '/contact/form/' in request.path %} active {% endif %}"
                         href="{% url 'core:contact_form' %}">Contacto</a></li>
-                {% if user.is_authenticated %}
+                {% if user.is_staff %}
                 <li class="nav-item"><a class="nav-link {% if '/admin/' in request.path %} active {% endif %}"
                         href="{% url 'admin:index' %}">Administración</a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
                 <li class="nav-item nav-link text-bg-secondary">{{ user.username }}</li>
-
                 <li class="nav-item">
                     <form action="{% url 'core:logout' %}" method="post">
                         {% csrf_token %}

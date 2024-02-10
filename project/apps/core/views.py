@@ -1,6 +1,6 @@
 from django.contrib.auth.views import LoginView
-from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render, redirect
 from .forms import *
 
 
@@ -12,7 +12,7 @@ def contact(request):
     return render(request, "core/contact_form.html")
 
 
-def about(request):
+def about(request: HttpRequest) -> HttpResponse:
     return render(request, "core/about.html")
 
 
@@ -24,12 +24,12 @@ class CustomLoginView(LoginView):
 def register(request):
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
-    if form.is_valid():
-        form.save()
-        return redirect("core:login")
+        if form.is_valid():
+            form.save()
+            return redirect('core:index')
     else:
         form = CustomUserCreationForm()
-    return render(request, "core/register.html", {"form": form})
+    return render(request, 'core/register.html', {"form": form})
 
 
 def contact_view(request):
