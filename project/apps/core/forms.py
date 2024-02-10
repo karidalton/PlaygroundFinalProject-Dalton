@@ -3,7 +3,11 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from .models import Contacto
 
-
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contacto
+        fields = ['nombre', 'email', 'mensaje']
+        
 class CustomAuthenticationForm(AuthenticationForm):
     class Meta:
         model = User
@@ -24,7 +28,3 @@ class CustomUserCreationForm(UserCreationForm):
             "password2": forms.PasswordInput(attrs={"class": "form-control"}),
     }
 
-class ContactForm(forms.ModelForm):
-    class Meta:
-        model = Contacto
-        fields = ['nombre', 'email', 'mensaje']

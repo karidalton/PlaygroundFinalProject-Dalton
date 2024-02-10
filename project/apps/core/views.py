@@ -27,7 +27,7 @@ def register(request):
     if form.is_valid():
         form.save()
         return redirect("core:login")
-    else:  # if request.method == "GET":
+    else:
         form = CustomUserCreationForm()
     return render(request, "core/register.html", {"form": form})
 

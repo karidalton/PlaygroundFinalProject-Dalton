@@ -11,7 +11,7 @@
 </div>
 
 
-
+{% if user.is_authenticated %}
 <div class="col-md-6 mb-5">
     <div class="card h-90">
         <div class="card-body">
@@ -41,3 +41,4 @@
     <div class="card-footer d-grid"><a href="categoria/list" class="btn btn-secondary btn-sm">Ver</a>
     </div>
 </div>
+{% endif %}
