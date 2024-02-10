@@ -14,35 +14,35 @@ from django.views.generic import (
 )
 
 
-class ClientList(ListView):
-    model = Client
+class ClienteList(ListView):
+    model = Cliente
     template_name = 'cliente/cliente_list.html'
 
     def get_queryset(self):
         if self.request.GET.get("consulta"):
             consulta = self.request.GET.get("consulta")
-            object_list = Client.objects.filter(nombre__icontains=consulta)
+            object_list = Cliente.objects.filter(nombre__icontains=consulta)
         else:
-            object_list = Client.objects.all()
+            object_list = Cliente.objects.all()
         return object_list
 
 
-class ClientCreate(LoginRequiredMixin, CreateView):
-    model = Client
-    form_class = ClientForm
+class ClienteCreate(LoginRequiredMixin, CreateView):
+    model = Cliente
+    form_class = ClienteForm
     success_url = reverse_lazy("cliente:cliente_list")
 
 
-class ClientUpdate(LoginRequiredMixin, UpdateView):
-    model = Client
-    form_class = ClientForm
+class ClienteUpdate(LoginRequiredMixin, UpdateView):
+    model = Cliente
+    form_class = ClienteForm
     success_url = reverse_lazy("cliente:cliente_list")
 
 
-class ClientDelete(LoginRequiredMixin, DeleteView):
-    model = Client
+class ClienteDelete(LoginRequiredMixin, DeleteView):
+    model = Cliente
     success_url = reverse_lazy("cliente:cliente_list")
 
 
-class ClientDetail(DetailView):
-    model = Client
+class ClienteDetail(DetailView):
+    model = Cliente

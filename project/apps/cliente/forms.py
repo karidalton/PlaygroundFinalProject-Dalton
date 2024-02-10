@@ -3,7 +3,7 @@ from django import forms
 from . import models
 
 
-class ClientForm(forms.ModelForm):
+class ClienteForm(forms.ModelForm):
     class Meta:
-        model = models.Client
+        model = models.Cliente
         fields = "__all__"

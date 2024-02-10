@@ -2,7 +2,7 @@ from django.db import models
 from datetime import *
 
 
-class Client(models.Model):
+class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
     fecha_nacimiento = models.DateField()

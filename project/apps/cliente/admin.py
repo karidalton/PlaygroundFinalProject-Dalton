@@ -3,7 +3,7 @@ from . import models
 
 admin.site.site_title = "cliente"
 
-class ClientAdmin(admin.ModelAdmin):
+class ClienteAdmin(admin.ModelAdmin):
     list_display = ("nombre", "apellido", "fecha_alta", "email")
     list_display_links = ("nombre",)
     search_fields = ("nombre", "apellido")
@@ -12,4 +12,4 @@ class ClientAdmin(admin.ModelAdmin):
     date_hierarchy = "fecha_alta"
 
 
-admin.site.register(models.Client, ClientAdmin)
+admin.site.register(models.Cliente, ClienteAdmin)

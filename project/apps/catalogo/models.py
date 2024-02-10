@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from cliente.models import Client
+from cliente.models import Cliente
 
 
 class Categoria(models.Model):
@@ -32,7 +32,7 @@ class Venta(models.Model):
     operacion = models.AutoField(primary_key=True, default=1)
     articulo = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cliente = models.ForeignKey(
-        Client, null=True, blank=True, on_delete=models.SET_NULL)
+        Cliente, null=True, blank=True, on_delete=models.SET_NULL)
     cantidad = models.FloatField()
     precio_unitario = models.FloatField(default=0, editable=False)
     precio_neto = models.FloatField(default=0, editable=False)
