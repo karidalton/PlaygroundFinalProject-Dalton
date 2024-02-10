@@ -11,8 +11,6 @@ urlpatterns = [
          CategoriaUpdate.as_view(), name="categoria_update"),
     path("categoria/delete/<int:pk>/",
          CategoriaDelete.as_view(), name="categoria_delete"),
-    path("categoria/detail/<int:pk>/",
-         CategoriaDetail.as_view(), name="categoria_detail"),
     path("producto/list/", ProductoList.as_view(), name="producto_list"),
     path("producto/form/", ProductoCreate.as_view(), name="producto_form"),
     path("producto/update/<int:pk>/",

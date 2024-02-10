@@ -30,3 +30,18 @@ def register(request):
     else:  # if request.method == "GET":
         form = CustomUserCreationForm()
     return render(request, "core/register.html", {"form": form})
+
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('core:contacto_exitoso')
+    else:
+        form = ContactForm()
+    return render(request, 'core/contact_form.html', {'form': form})
+
+
+def contacto_exitoso(request):
+    return render(request, "core/contacto_exitoso.html")

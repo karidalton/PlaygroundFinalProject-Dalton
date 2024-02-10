@@ -46,9 +46,6 @@ class CategoriaDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("catalogo:categoria_list")
 
 
-class CategoriaDetail(DetailView):
-    model = Categoria
-
 
 class ProductoList(ListView):
     model = Producto

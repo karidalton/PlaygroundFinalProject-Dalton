@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% block content_title %}
+ABM de clientes
+{% endblock content_title %}
+
+{% block content %}
+<div class="container">
+    <div class="mb-4">
+        <form method="get">
+            <input type="text" class="form-control" name="consulta" placeholder="Buscar cliente">
+        </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Clientes</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <a href="{% url 'cliente:cliente_form' %}" class="btn btn-secondary">Nuevo cliente</a>
+
+            {% for categoria in object_list %}
+            <tr>
+                <td>{{ categoria.nombre }}</td>
+                <td>
+                    <a href="{% url 'cliente:cliente_detail' categoria.id %}" class="btn btn-secondary">
+                        <i class="fas fa-star"></i> Detalle</a>
+                    <a href=" {% url 'cliente:cliente_update' categoria.id %}" class="btn btn-secondary"><i
+                            class="fas fa-pencil-alt"></i> Editar</a>
+                    <a href="{% url 'cliente:cliente_confirm_delete' categoria.id %}" class="btn btn-secondary "><i
+                            class="fas fa-trash-alt"></i>Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td class="text-center">La búsqueda no ha arrojado valor.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

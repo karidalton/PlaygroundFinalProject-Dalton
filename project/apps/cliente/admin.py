@@ -1,6 +1,7 @@
 from django.contrib import admin
 from . import models
 
+admin.site.site_title = "cliente"
 
 class ClientAdmin(admin.ModelAdmin):
     list_display = ("nombre", "fecha_alta", "email")

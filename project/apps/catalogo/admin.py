@@ -11,14 +11,14 @@ class ProductoAdmin(admin.ModelAdmin):
     list_display = ("categoria_id", "nombre", "precio", "fecha_creacion")
     list_display_links = ("nombre",)
     search_fields = ("nombre",)
-    ordering = ("categoria_id", "nombre")
+    ordering = ("nombre",)
     list_filter = ("categoria_id",)
     date_hierarchy = "fecha_creacion"
 
 
 class VentaAdmin(admin.ModelAdmin):
     list_display = ("operacion", "fecha_operacion",
-                    "articulo", "precio_neto")
+                    "articulo","cantidad", "precio_unitario", "precio_neto")
     list_display_links = ("operacion",)
     search_fields = ("operacion", "cliente", "fecha_operacion", "articulo")
     ordering = ("operacion", "fecha_operacion")

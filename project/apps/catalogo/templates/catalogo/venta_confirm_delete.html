@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-Eliminar Artículo
+Eliminar registro de venta
 {% endblock title %}
 
 
@@ -9,7 +9,7 @@ Eliminar Artículo
 
 <form method="post">
     {% csrf_token %}
-    <p>Confirma que quiere eliminar {{ object.nombre }} del catálogo?</p>
+    <p>Confirma que quiere eliminar {{ object.operacion }}?</p>
     <button type="submit">Si</button>
 
 </form>

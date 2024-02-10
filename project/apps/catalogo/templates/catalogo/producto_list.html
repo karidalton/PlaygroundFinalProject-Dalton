@@ -22,24 +22,28 @@ Catálogo de productos
         <thead>
             <tr>
                 <th>Artículos</th>
+                <th>Precio</th>
+                <th>Categoria</th>
             </tr>
         </thead>
         <tbody>
-            {% for categoria in object_list %}
+            {% for articulo in object_list %}
             <tr>
-                <td>{{ categoria.nombre }}</td>
+                <td>{{ articulo.nombre }}</td>
+                <td>{{ articulo.precio }}</td>
+                <td>{{ articulo.categoria }}</td>
                 <td>
-                    <a href="{% url 'catalogo:producto_detail' categoria.id %}" class="btn btn-secondary">
+                    <a href="{% url 'catalogo:producto_detail' articulo.id %}" class="btn btn-secondary">
                         <i class="fas fa-star"></i> Detalle</a>
-                    <a href=" {% url 'catalogo:producto_update' categoria.id %}" class="btn btn-secondary"><i
+                    <a href=" {% url 'catalogo:producto_update' articulo.id %}" class="btn btn-secondary"><i
                             class="fas fa-pencil-alt"></i> Editar</a>
-                    <a href="{% url 'catalogo:producto_confirm_delete' categoria.id %}" class="btn btn-secondary "><i
+                    <a href="{% url 'catalogo:producto_confirm_delete' articulo.id %}" class="btn btn-secondary "><i
                             class="fas fa-trash-alt"></i>Eliminar</a>
                 </td>
             </tr>
             {% empty %}
             <tr>
-                <td class="text-center">No hay categorías disponibles.</td>
+                <td class="text-center">No hay artículos disponibles.</td>
             </tr>
             {% endfor %}
         </tbody>

@@ -17,7 +17,6 @@ class Producto(models.Model):
     precio = models.FloatField()
     fecha_creacion = models.DateField(
         default=timezone.now, editable=False, verbose_name="fecha de creación")
-
     descripcion = models.TextField(
         null=True, blank=True, verbose_name="descripción")
 
@@ -35,15 +34,15 @@ class Venta(models.Model):
     cliente = models.ForeignKey(
         Client, null=True, blank=True, on_delete=models.SET_NULL)
     cantidad = models.FloatField()
-    precio_unitario = models.FloatField()
-    precio_neto = models.FloatField(editable=False)
+    precio_unitario = models.FloatField(default=0, editable=False)
+    precio_neto = models.FloatField(default=0, editable=False)
     fecha_operacion = models.DateField(
         default=timezone.now, editable=False, verbose_name="fecha de operación")
 
     def save(self):
         # Calcular el precio neto
         self.precio_neto = float(self.precio_unitario * self.cantidad)
-        super().save()
+        return self.precio_neto
 
     def __str__(self):
         return f"{self.operacion}, {self.fecha_operacion}, {self.articulo}, {self.cantidad}, {self.precio_unitario}, {self.precio_neto}"

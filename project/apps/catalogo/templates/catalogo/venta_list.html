@@ -19,13 +19,21 @@ Ventas realizadas
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Ventas</th>
+                <th>#Operación</th>
+                <th>Articulo</th>
+                <th>Cantidad</th>
+                <th>Precio unitario</th>
+                <th>Precio total</th>
             </tr>
         </thead>
         <tbody>
             {% for item in object_list %}
             <tr>
-                <td>{{ item }}</td>
+                <td>{{ item.operacion }}</td>
+                <td>{{ item.articulo }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>{{ item.precio_unitario }}</td>
+                <td>{{ item.precio_neto }}</td>
                 <td>
                     <a href="{% url 'catalogo:venta_detail' item.pk %}">
                         <i class="fas fa-star"></i> Detalle</a>

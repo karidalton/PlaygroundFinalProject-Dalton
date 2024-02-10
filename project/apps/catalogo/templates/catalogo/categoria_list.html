@@ -8,14 +8,14 @@ Categorías de artículos
 <div class="container">
     <div class="mb-4">
         <form method="get">
-            <input type="text" class="form-control" name="consulta" placeholder="Buscar genero">
+            <input type="text" class="form-control" name="consulta" placeholder="Buscar categoria">
         </form>
     </div>
 
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Genero</th>
+                <th>Categorias</th>
             </tr>
         </thead>
         <tbody>
@@ -26,8 +26,6 @@ Categorías de artículos
             <tr>
                 <td>{{ categoria.nombre }}</td>
                 <td>
-                    <a href="{% url 'catalogo:categoria_detail' categoria.id %}" class="btn btn-secondary">
-                        <i class="fas fa-star"></i> Detalle</a>
                     <a href=" {% url 'catalogo:categoria_update' categoria.id %}" class="btn btn-secondary"><i
                             class="fas fa-pencil-alt"></i> Editar</a>
                     <a href="{% url 'catalogo:categoria_delete' categoria.id %}" class="btn btn-secondary "><i

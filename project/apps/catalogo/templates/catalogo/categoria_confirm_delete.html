@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Eliminar Categoria
+{% endblock title %}
+
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <p>Confirma que quiere eliminar {{ object.nombre }} del listado de Categorias?</p>
+    <button type="submit">Si</button>
+
+</form>
+{% endblock content %}
