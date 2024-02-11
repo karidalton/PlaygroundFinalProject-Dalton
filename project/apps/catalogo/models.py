@@ -21,7 +21,7 @@ class Producto(models.Model):
         null=True, blank=True, verbose_name="descripción")
 
     def __str__(self):
-        return f"{self.nombre}"
+        return f"{self.nombre}, {self.precio}"
 
     class Meta:
         verbose_name = "producto"
@@ -34,11 +34,22 @@ class Venta(models.Model):
         Producto, null=True, blank=True, on_delete=models.SET_NULL)
     cliente = models.ForeignKey(
         Cliente, null=True, blank=True, on_delete=models.SET_NULL)
-    cantidad = models.FloatField()
-    precio_unitario = models.FloatField(default=0, editable=True)
-    precio_neto = models.FloatField(default=0, editable=True)
+    cantidad = models.FloatField(verbose_name="cantidad")
+    precio_unitario = models.FloatField(
+        default=0, editable=False, verbose_name="precio unitario")
+    precio_neto = models.FloatField(
+        default=0, editable=False, verbose_name="precio neto")
     fecha_operacion = models.DateField(
         default=timezone.now, editable=False, verbose_name="fecha de operación")
 
+    def save(self,  *args, **kwargs):
+        self.precio_unitario = self.articulo.precio
+        self.precio_neto = float(self.precio_unitario) * float(self.cantidad)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return f"{self.operacion}, {self.fecha_operacion}, {self.articulo}, {self.cantidad}, {self.precio_unitario}, {self.precio_neto}"
+
+    class Meta:
+        verbose_name = "venta"
+        verbose_name_plural = "ventas"
