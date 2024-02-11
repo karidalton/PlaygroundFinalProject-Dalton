@@ -21,7 +21,7 @@ class Producto(models.Model):
         null=True, blank=True, verbose_name="descripción")
 
     def __str__(self):
-        return f"{self.nombre}, {self.precio}, {self.categoria}"
+        return f"{self.nombre}"
 
     class Meta:
         verbose_name = "producto"
