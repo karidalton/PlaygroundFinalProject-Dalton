@@ -37,8 +37,10 @@ Ventas realizadas
                 <td>
                     <a href=" {% url 'catalogo:venta_update' item.pk %}" class="btn btn-secondary"><i
                             class="fas fa-pencil-alt"></i> Editar</a>
+                    {% if user.is_staff %}
                     <a href="{% url 'catalogo:venta_confirm_delete' item.pk %}" class="btn btn-secondary"><i
                             class="fas fa-trash-alt"></i>Eliminar</a>
+                    {% endif %}
                 </td>
             </tr>
             {% empty %}

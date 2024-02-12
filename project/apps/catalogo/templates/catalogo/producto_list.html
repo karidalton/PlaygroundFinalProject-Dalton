@@ -12,12 +12,10 @@ Catálogo de productos
             <input type="text" class="form-control" name="consulta" placeholder="Buscar artículo">
         </form>
     </div>
-
-    <a {% if user.is_authenticated %} href="{% url 'catalogo:producto_form' %}" {% else %} href="{% url 'core:login' %}"
-        {% endif %} class="btn btn-secondary">Agregar artículo</a>
-    <a {% if user.is_authenticated %} href="{% url 'catalogo:categoria_form' %}" {% else %}
-        href="{% url 'core:login' %}" {% endif %} class="btn btn-secondary">Crear categoría</a>
-
+    {% if user.is_staff %}
+    <a href="{% url 'catalogo:producto_form' %}" class="btn btn-secondary">Agregar artículo</a>
+    <a href="{% url 'catalogo:categoria_form' %}" class="btn btn-secondary">Crear categoría</a>
+    {% endif %}
     <table class="table table-striped">
         <thead>
             <tr>
@@ -35,10 +33,12 @@ Catálogo de productos
                 <td>
                     <a href="{% url 'catalogo:producto_detail' articulo.id %}" class="btn btn-secondary">
                         <i class="fas fa-star"></i> Detalle</a>
+                    {% if user.is_staff %}
                     <a href=" {% url 'catalogo:producto_update' articulo.id %}" class="btn btn-secondary"><i
                             class="fas fa-pencil-alt"></i> Editar</a>
                     <a href="{% url 'catalogo:producto_confirm_delete' articulo.id %}" class="btn btn-secondary "><i
                             class="fas fa-trash-alt"></i>Eliminar</a>
+                    {% endif %}
                 </td>
             </tr>
             {% empty %}

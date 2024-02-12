@@ -18,8 +18,10 @@ Detalle de Artículo
 
     <div class="mt-4">
         <a href="{% url 'catalogo:producto_list' %}" class="btn btn-secondary">Volver a la Lista</a>
+        {% if user.is_staff %}
         <a href="{% url 'catalogo:producto_update' object.id %}" class="btn btn-secondary">Editar</a>
         <a href="{% url 'catalogo:producto_confirm_delete' object.id %}" class="btn btn-secondary">Eliminar</a>
+        {% endif %}
     </div>
 </div>
 {% endblock content %}
