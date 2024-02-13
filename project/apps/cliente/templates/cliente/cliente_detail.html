@@ -17,10 +17,10 @@ Información del cliente
     </div>
 
     <div class="mt-4">
-        <a href="{% url 'cliente:cliente_list' %}" class="btn btn-secondary">Volver a la Lista</a>
-        <a href="{% url 'cliente:cliente_update' object.id %}" class="btn btn-secondary">Editar</a>
+        <a href="{% url 'cliente:cliente_list' %}" class="btn btn-danger">Volver a la Lista</a>
+        <a href="{% url 'cliente:cliente_update' object.id %}" class="btn btn-danger">Editar</a>
         {% if user.is_staff %}
-        <a href="{% url 'cliente:cliente_confirm_delete' object.id %}" class="btn btn-secondary">Eliminar</a>
+        <a href="{% url 'cliente:cliente_confirm_delete' object.id %}" class="btn btn-danger">Eliminar</a>
         {% endif %}
     </div>
 </div>

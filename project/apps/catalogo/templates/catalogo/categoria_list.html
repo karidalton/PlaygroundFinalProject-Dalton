@@ -20,7 +20,7 @@ Categorías de artículos
         </thead>
         <tbody>
             {% if user.is_staff %}
-            <a href="{% url 'catalogo:categoria_form' %}" class="btn btn-secondary">Agregar categoria</a>
+            <a href="{% url 'catalogo:categoria_form' %}" class="btn btn-danger">Agregar categoria</a>
             {% endif %}
             {% for categoria in object_list %}
             <tr>
@@ -28,9 +28,9 @@ Categorías de artículos
                 <td>
                     {% if user.is_staff %}
 
-                    <a href=" {% url 'catalogo:categoria_update' categoria.id %}" class="btn btn-secondary"><i
+                    <a href=" {% url 'catalogo:categoria_update' categoria.id %}" class="btn btn-danger"><i
                             class="fas fa-pencil-alt"></i> Editar</a>
-                    <a href="{% url 'catalogo:categoria_delete' categoria.id %}" class="btn btn-secondary "><i
+                    <a href="{% url 'catalogo:categoria_delete' categoria.id %}" class="btn btn-danger "><i
                             class="fas fa-trash-alt"></i>Eliminar</a>
                     {% endif %}
                 </td>

@@ -17,8 +17,8 @@ class ProductoAdmin(admin.ModelAdmin):
 
 
 class VentaAdmin(admin.ModelAdmin):
-    list_display = ("operacion", "fecha_operacion",
-                    "articulo","cantidad", "precio_unitario", "precio_neto")
+    list_display = ("articulo", "operacion", "fecha_operacion",
+                    "cantidad", "precio_unitario", "precio_neto")
     list_display_links = ("operacion",)
     search_fields = ("operacion", "cliente", "fecha_operacion", "articulo")
     ordering = ("operacion", "fecha_operacion")

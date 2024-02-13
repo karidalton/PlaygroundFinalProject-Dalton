@@ -13,8 +13,8 @@ Catálogo de productos
         </form>
     </div>
     {% if user.is_staff %}
-    <a href="{% url 'catalogo:producto_form' %}" class="btn btn-secondary">Agregar artículo</a>
-    <a href="{% url 'catalogo:categoria_form' %}" class="btn btn-secondary">Crear categoría</a>
+    <a href="{% url 'catalogo:producto_form' %}" class="btn btn-danger">Agregar artículo</a>
+    <a href="{% url 'catalogo:categoria_form' %}" class="btn btn-danger">Crear categoría</a>
     {% endif %}
     <table class="table table-striped">
         <thead>
@@ -31,12 +31,12 @@ Catálogo de productos
                 <td>{{ articulo.precio }}</td>
                 <td>{{ articulo.categoria }}</td>
                 <td>
-                    <a href="{% url 'catalogo:producto_detail' articulo.id %}" class="btn btn-secondary">
+                    <a href="{% url 'catalogo:producto_detail' articulo.id %}" class="btn btn-danger">
                         <i class="fas fa-star"></i> Detalle</a>
                     {% if user.is_staff %}
-                    <a href=" {% url 'catalogo:producto_update' articulo.id %}" class="btn btn-secondary"><i
+                    <a href=" {% url 'catalogo:producto_update' articulo.id %}" class="btn btn-danger"><i
                             class="fas fa-pencil-alt"></i> Editar</a>
-                    <a href="{% url 'catalogo:producto_confirm_delete' articulo.id %}" class="btn btn-secondary "><i
+                    <a href="{% url 'catalogo:producto_confirm_delete' articulo.id %}" class="btn btn-danger "><i
                             class="fas fa-trash-alt"></i>Eliminar</a>
                     {% endif %}
                 </td>

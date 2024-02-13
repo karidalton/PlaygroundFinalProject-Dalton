@@ -14,13 +14,15 @@ Ventas realizadas
     </div>
 
     <a {% if user.is_authenticated %} href="{% url 'catalogo:venta_form' %}" {% else %} href="{% url 'core:login' %}"
-        {%endif %} class="btn btn-secondary">Ingresar una venta</a>
+        {%endif %} class="btn btn-danger">Ingresar una venta</a>
 
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>#Operación</th>
+                <th>#Fecha</th>
                 <th>Articulo</th>
+                <th>Cliente</th>
                 <th>Cantidad</th>
                 <th>Precio unitario</th>
                 <th>Precio total</th>
@@ -30,15 +32,17 @@ Ventas realizadas
             {% for item in object_list %}
             <tr>
                 <td>{{ item.operacion }}</td>
-                <td>{{ item.articulo }}</td>
+                <td>{{ item.fecha_operacion }}</td>
+                <td>{{ item.articulo.nombre }}</td>
+                <td>{{ item.cliente }}</td>
                 <td>{{ item.cantidad }}</td>
                 <td>{{ item.precio_unitario }}</td>
                 <td>{{ item.precio_neto }}</td>
                 <td>
-                    <a href=" {% url 'catalogo:venta_update' item.pk %}" class="btn btn-secondary"><i
+                    <a href=" {% url 'catalogo:venta_update' item.pk %}" class="btn btn-danger"><i
                             class="fas fa-pencil-alt"></i> Editar</a>
                     {% if user.is_staff %}
-                    <a href="{% url 'catalogo:venta_confirm_delete' item.pk %}" class="btn btn-secondary"><i
+                    <a href="{% url 'catalogo:venta_confirm_delete' item.pk %}" class="btn btn-danger"><i
                             class="fas fa-trash-alt"></i>Eliminar</a>
                     {% endif %}
                 </td>

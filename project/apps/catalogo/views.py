@@ -87,7 +87,7 @@ class VentaList(ListView):
     def get_queryset(self):
         if self.request.GET.get("consulta"):
             consulta = self.request.GET.get("consulta")
-            object_list = Venta.objects.filter(nombre__icontains=consulta)
+            object_list = Venta.objects.filter(operacion__icontains=consulta)
         else:
             object_list = Venta.objects.all()
         return object_list

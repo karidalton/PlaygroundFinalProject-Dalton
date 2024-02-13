@@ -11,8 +11,8 @@ Registro de usuario
 <form method="post" class="form-control">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-secondary">Registrar Usuario</button>
-    <a href="{% url 'core:index' %}" class="btn btn-secondary">Cancelar</a>
+    <button type="submit" class="btn btn-danger">Registrar Usuario</button>
+    <a href="{% url 'core:index' %}" class="btn btn-danger">Cancelar</a>
 
 
 </form>
