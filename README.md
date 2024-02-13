@@ -16,6 +16,7 @@ Entrega Final Curso Python Flex
 - Link de GitHub: https://github.com/karidalton/PlaygroundFinalProject-Dalton.git
 
 - Dependencias utilizadas: Django 5.0.1
+- Front-end: Bootstrap 5.2
 
 - Cómo ejecutar la aplicación web en el servidor local:
 
@@ -25,7 +26,7 @@ Entrega Final Curso Python Flex
 4) Para ejecutar el proyecto ejecutar en la terminal 'python manage.py runserver' y luego ingresar a la URL http://127.0.0.1:8000
 
 
-## Lo realizado:
+## Trabajo realizado:
 1) 3 apps: core, cliente y catalogo
 - la app 'core' es la app principal, donde se encuentra el diseño base del HTML, así como el indice, la barra de navegación, footer, el contacto y sobre nosotros.
 - la app 'cliente' contiene los modelos y vistas correspondientes para el CRUD de los clientes.
@@ -38,5 +39,9 @@ Entrega Final Curso Python Flex
 - Agregar imágenes, tanto en el menú, como en la descripción de los artículos. 
 - Mejorar el diseño de los formularios, para mostrarlo más encuadrado.
 - Mejorar el formato en que se visualiza la información referente a fechas.
+
+## Video
+
+YouTube: https://youtu.be/khbnJy3gnso
 
 
