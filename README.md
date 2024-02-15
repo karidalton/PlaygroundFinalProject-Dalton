@@ -42,6 +42,5 @@ Entrega Final Curso Python Flex
 
 ## Video
 
-YouTube: https://youtu.be/khbnJy3gnso
-
+YouTube: https://youtu.be/CVzawmgKILw
 
